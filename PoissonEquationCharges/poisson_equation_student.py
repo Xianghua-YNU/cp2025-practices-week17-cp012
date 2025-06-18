@@ -61,7 +61,7 @@ def solve_poisson_equation(M: int = 100, target: float = 1e-6, max_iterations: i
     # 主迭代循环
     while delta > target and iterations < max_iterations:
         # 使用有限差分公式更新内部网格点
-        phi[1:-1, 1:-1] = 0.25 * (phi[2:, 1:-1] + phi[:-2, 1:-1] +
+        phi[1:-1, 1:-1] = 0.25 * (phi[2:, 1:-1] + phi[0:-2, 1:-1] +
                                   phi[1:-1, 2:] + phi[1:-1, :-2] +
                                   h ** 2 * rho[1:-1, 1:-1])
 
