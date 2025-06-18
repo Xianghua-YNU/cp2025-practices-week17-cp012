@@ -125,7 +125,7 @@ def analyze_solution(phi: np.ndarray, iterations: int, converged: bool) -> None:
     print(f"是否收敛: {'是' if converged else '否'}")
     print(f"最大电势: {np.max(phi):.6f} V")
     print(f"最小电势: {np.min(phi):.6f} V")
-
+    print(f"  Potential range: {np.max(phi) - np.min(phi):.6f} V")
     # 找到极值位置
     max_pos = np.unravel_index(np.argmax(phi), phi.shape)
     min_pos = np.unravel_index(np.argmin(phi), phi.shape)
