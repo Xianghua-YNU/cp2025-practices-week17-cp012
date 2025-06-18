@@ -146,3 +146,21 @@ if __name__ == "__main__":
 
     # 可视化结果
     visualize_solution(phi, M)
+    plt.figure(figsize=(12, 5))
+    plt.subplot(1, 2, 1)
+    center_y = M // 2
+    plt.plot(phi[center_y, :], 'b-', linewidth=2)
+    plt.xlabel('x (grid points)')
+    plt.ylabel('Potential (V)')
+    plt.title(f'Potential along y = {center_y}')
+    plt.grid(True, alpha=0.3)
+    plt.subplot(1, 2, 2)
+    center_x = M // 2
+    plt.plot(phi[:, center_x], 'r-', linewidth=2)
+    plt.xlabel('y (grid points)')
+    plt.ylabel('Potential (V)')
+    plt.title(f'Potential along x = {center_x}')
+    plt.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.show()
