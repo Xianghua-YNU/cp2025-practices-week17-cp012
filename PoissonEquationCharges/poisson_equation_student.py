@@ -41,10 +41,10 @@ def solve_poisson_equation(M: int = 100, target: float = 1e-6, max_iterations: i
     h = 1.0
 
     # 初始化电势数组，形状为(M+1, M+1)
-    phi = np.zeros((M + 1, M + 1))
+    phi = np.zeros((M + 1, M + 1)，dtype=float)
 
     # 创建电荷密度数组
-    rho = np.zeros((M + 1, M + 1))
+    rho = np.zeros((M + 1, M + 1),dtype=float)
 
     # 设置电荷分布
     rho[60:80, 20:40] = 1.0  # 正电荷区域
