@@ -48,9 +48,13 @@ def solve_poisson_equation(M: int = 100, target: float = 1e-6, max_iterations: i
     rho = np.zeros((M + 1, M + 1),dtype=float)
 
     # 设置电荷分布
-    rho[60:80, 20:40] = 1.0  # 正电荷区域
-    rho[20:40, 60:80] = -1.0  # 负电荷区域
-
+    pos_y1, pos_y2 = int(0.6*M), int(0.8*M)
+    pos_x1, pos_x2 = int(0.2*M), int(0.4*M)
+    neg_y1, neg_y2 = int(0.2*M), int(0.4*M)
+    neg_x1, neg_x2 = int(0.6*M), int(0.8*M)
+    
+    rho[pos_y1:pos_y2, pos_x1:pos_x2] = 1.0   
+    rho[neg_y1:neg_y2, neg_x1:neg_x2] = -1.0  
     # 初始化迭代变量
     delta = 1.0  # 用于存储最大变化量
     iterations = 0  # 迭代计数器
