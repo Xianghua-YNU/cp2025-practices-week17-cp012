@@ -42,7 +42,8 @@ def solve_poisson_equation(M: int = 100, target: float = 1e-6, max_iterations: i
 
     # 初始化电势数组，形状为(M+1, M+1)
     phi = np.zeros((M + 1, M + 1)，dtype=float)
-
+    # 创建前一步的电势数组副本
+    phi_prev = np.copy(phi)
     # 创建电荷密度数组
     rho = np.zeros((M + 1, M + 1),dtype=float)
 
@@ -55,8 +56,7 @@ def solve_poisson_equation(M: int = 100, target: float = 1e-6, max_iterations: i
     iterations = 0  # 迭代计数器
     converged = False  # 收敛标志
 
-    # 创建前一步的电势数组副本
-    phi_prev = np.copy(phi)
+
 
     # 主迭代循环
     while delta > target and iterations < max_iterations:
